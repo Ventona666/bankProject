@@ -29,9 +29,26 @@ public class Client {
 
     public void afficherBilan(){
         for(int i = 0; i < nbComptes; i++){
-
+            System.out.println("Compte n°" + i + " : " + comptes[i].getSolde() + " €.");
         }
-        System.out.println("");
+    }
+
+    public float soldeTotal(){
+        float soldeT = 0;
+        for(int i = 0; i < nbComptes; i++){
+            soldeT += comptes[i].getSolde();
+        }
+        return soldeT;
+    }
+
+    public void afficherSolde(){
+        float soldeT = soldeTotal();
+        System.out.println("Solde total : " + soldeT + " €.");
+    }
+
+    public int ajouterCompte(){
+        nbComptes++;
+        return nbComptes;
     }
 
 }
