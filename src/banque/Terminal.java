@@ -26,7 +26,7 @@ public class Terminal {
             }
         }
         else {
-            System.out.println("Code invalide");
+            System.out.println("Code invalide ou nombre de tentatives supérieur à 3");
             return 0;
         }
         return 1;

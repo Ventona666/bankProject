@@ -3,17 +3,50 @@ package utilitaire;
 public class Date {
     private int jour;
     private int mois;
-    private int an;
-    private int heure;
-    private int minutes;
-    private int seconde;
+    private int an ;
+    private int heure = 0;
+    private int minutes = 0;
+    private int seconde = 0;
 
-    public Date(int jour, int mois, int an, int heure, int minutes, int seconde){
+    public Date(int jour, int mois, int an){
         this.jour = jour;
         this.mois = mois;
         this.an = an;
-        this.heure = heure;
-        this.minutes = minutes;
-        this.seconde = seconde;
+    }
+
+    public int getJour() {
+        return jour;
+    }
+
+    public int getMois() {
+        return mois;
+    }
+
+    public int getAn() {
+        return an;
+    }
+
+    public int getHeure() {
+        return heure;
+    }
+
+    public int getMinutes() {
+        return minutes;
+    }
+
+    public int getSeconde() {
+        return seconde;
+    }
+
+    public String toString(){
+        System.out.println("[" + this.getHeure()+ ":" + this.getMinutes() + ":" + this.getSeconde() + " " + this.getJour() + "/" + this.getMois() + "/" + this.getAn()+"]");
+        return null;
+    }
+
+    public boolean posterieurA(Date date){ //TODO
+        if(an < date.getAn() || mois < date.getMois() || jour < date.getJour() || heure < date.getHeure() || minutes < date.getMinutes() || seconde < date.getSeconde()){
+            return true;
+        }
+        return false;
     }
 }
