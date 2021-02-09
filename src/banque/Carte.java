@@ -1,6 +1,7 @@
 package banque;
 import utilitaire.Date;
 
+
 public class Carte {
     private int[] code;
     private int nbTentatives = 3;
@@ -45,8 +46,10 @@ public class Carte {
         return false;
     }
 
-    public void payer (Banque banque, int client, int compte, float valeur){
-        compte.r
+    public void payer (Banque banque, int numeroClient, int numeroCompte, float valeur){
+        Client client = banque.getClient(numeroClient);
+        Compte compte = client.getCompte(numeroCompte);
+        compte.retrait(valeur);
     }
 
 }

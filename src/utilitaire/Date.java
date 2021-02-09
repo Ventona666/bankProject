@@ -39,8 +39,7 @@ public class Date {
     }
 
     public String toString(){
-        System.out.println("[" + this.getHeure()+ ":" + this.getMinutes() + ":" + this.getSeconde() + " " + this.getJour() + "/" + this.getMois() + "/" + this.getAn()+"]");
-        return null;
+        return ("[" + this.getHeure()+ ":" + this.getMinutes() + ":" + this.getSeconde() + " " + this.getJour() + "/" + this.getMois() + "/" + this.getAn()+"]");
     }
 
     public boolean posterieurA(Date date){ //TODO

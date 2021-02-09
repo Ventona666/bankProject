@@ -16,5 +16,20 @@ public class Banque {
 
     }
 
-    public
+    public Client getClient(int numeroClient){
+        return clients[numeroClient];
+    }
+
+    public void afficherBilan(){
+        float soldeTotal = 0;
+        for(int i = 0; i < nbreClients; i++){
+            soldeTotal += clients[i].soldeTotal();
+        }
+        System.out.println("Voici le solde total de la banque : " + soldeTotal + " €.");
+    }
+
+    public String genererAutorisation(Carte carte, float valeur){
+
+
+    }
 }
