@@ -1,28 +1,39 @@
 package banque;
 
+/**
+ * Terminal Type
+ */
 public class Terminal {
     private int numClient;
     private int numCompte;
     private Banque banque;
 
+    /**
+     * @param banque
+     * @param numClient
+     * @param numCompte
+     */
     public Terminal(Banque banque, int numClient, int numCompte){
         this.numClient = numClient;
         this.numCompte = numCompte;
         this.banque = banque;
     }
 
+    /**
+     * @param valeur
+     * @param carte
+     * @param code
+     * @return 1 si tout c'est passé correctent, 0 sinon
+     */
     public int payer(float valeur, Carte carte, int [] code){
+
         if(carte.codeValide(code)){
-            Banque banque = carte.getBanque();
-            String autorisation = banque.genererAutorisation(carte, valeur);
-            if (autorisation.equals("OK")){
-                Client client = banque.getClient(numClient);
-                Compte compte = client.getCompte(numCompte);
-                carte.payer(banque, client, compte, valeur);
+            Banque banquePossesseurCarte = carte.getBanque();
+            if(banquePossesseurCarte.genererAutorisation(carte, valeur).equals("OK")){
+                carte.payer(banque, numClient, numCompte, valeur);
             }
             else{
                 System.out.println("Paiement refusé");
-                return 0;
             }
         }
         else {
@@ -31,5 +42,4 @@ public class Terminal {
         }
         return 1;
     }
-
 }
